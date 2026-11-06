@@ -8,7 +8,8 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/clients", label: "Our Clients" },
   { href: "/news", label: "News & Events" },
-  { href: "/careers", label: "Careers" },
+  // Hidden for now; uncomment to show Careers again.
+  // { href: "/careers", label: "Careers" },
 ];
 
 type HeaderProps = {

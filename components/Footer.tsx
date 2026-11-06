@@ -15,7 +15,8 @@ const company = [
   { href: "/about", label: "About Us" },
   { href: "/clients", label: "Our Clients" },
   { href: "/news", label: "News & Events" },
-  { href: "/careers", label: "Careers" },
+  // Hidden for now; uncomment to show Careers again.
+  // { href: "/careers", label: "Careers" },
   { href: "/faq", label: "FAQs" },
   { href: "/contact", label: "Contact Us" },
 ];

@@ -26,7 +26,7 @@ export default async function NewsPage() {
           image="/images/news/hero.png"
         />
         <Featured posts={posts.slice(0, 3)} />
-        <Posts posts={posts.slice(3)} />
+        <Posts posts={posts} />
         <CtaBand />
       </main>
       <Footer />

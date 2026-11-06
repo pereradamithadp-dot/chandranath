@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import Button from "@/components/Button";
 import SectionLabel from "@/components/SectionLabel";
@@ -17,6 +16,7 @@ const offices = {
       "info@chandranath.com",
     ],
     mapLabel: "Panadura office",
+    mapQuery: "No. 08, Kulathunga Road, Panadura, Sri Lanka",
     tel: "tel:+94382237256",
     directions:
       "https://www.google.com/maps/search/?api=1&query=No.+08+Kulathunga+Road+Panadura",
@@ -30,6 +30,7 @@ const offices = {
       "branch@chandranath.com",
     ],
     mapLabel: "Rathnapura office",
+    mapQuery: "Ganegama, Pelwadiya, Rathnapura, Sri Lanka",
     tel: "tel:+94719103351",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Ganegama+Pelwadiya+Rathnapura",
@@ -85,15 +86,17 @@ export default function OfficesPanel() {
         </div>
       ))}
 
-      <div className="relative h-[240px] w-full overflow-hidden rounded-lg">
-        <Image
-          src="/images/contact/map.svg"
-          alt={`Map showing the ${office.mapLabel}`}
-          fill
-          sizes="568px"
-          className="object-cover"
+      <div className="relative h-[240px] w-full overflow-hidden rounded-lg border border-line bg-surface-100">
+        <iframe
+          key={active}
+          title={`Map showing the ${office.mapLabel}`}
+          src={`https://www.google.com/maps?q=${encodeURIComponent(office.mapQuery)}&z=15&output=embed`}
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
         />
-        <div className="absolute left-[332px] top-[58px] rounded-md bg-surface-200 px-3 py-2 text-label whitespace-nowrap text-ink shadow-md">
+        <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-surface-200 px-3 py-2 text-label whitespace-nowrap text-ink shadow-md">
           {office.mapLabel}
         </div>
       </div>

@@ -31,6 +31,7 @@ export default function Featured({ posts }: { posts: PostItem[] }) {
             title={lead.title}
             excerpt={lead.summary}
             image={lead.image}
+            href={lead.href}
           />
           <div className="flex min-w-0 flex-1 flex-col gap-6">
             {rows.map((p) => (
@@ -40,6 +41,7 @@ export default function Featured({ posts }: { posts: PostItem[] }) {
                 date={p.date}
                 title={p.title}
                 image={p.image}
+                href={p.href}
               />
             ))}
           </div>

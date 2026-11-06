@@ -1,5 +1,8 @@
 export type PostItem = {
   id: string;
+  slug: string;
+  /** Link to the post's own page. */
+  href: string;
   category: string;
   /** Formatted for display, e.g. "10 October 2026". */
   date: string;
@@ -14,4 +17,11 @@ export type ClientItem = {
   name: string;
   logo?: string;
   showOnHome: boolean;
+};
+
+export type PortableBlock = { _type: string; _key: string; [key: string]: unknown };
+
+export type PostDetail = PostItem & {
+  /** Sanity Portable Text; empty when no article has been written. */
+  body: PortableBlock[];
 };

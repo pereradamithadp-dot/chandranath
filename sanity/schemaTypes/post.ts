@@ -46,6 +46,20 @@ export const post = defineType({
       type: "boolean",
       initialValue: false,
     }),
+    defineField({
+      name: "body",
+      title: "Article",
+      description: "Full text shown on the post's own page.",
+      type: "array",
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [defineField({ name: "alt", title: "Alt text", type: "string" })],
+        },
+      ],
+    }),
   ],
   orderings: [
     { title: "Date, newest", name: "dateDesc", by: [{ field: "publishedAt", direction: "desc" }] },

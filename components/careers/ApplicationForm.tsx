@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { type FormState, sendApplication } from "@/app/actions/forms";
+import FormStatus, { Honeypot } from "@/components/FormStatus";
 import SectionLabel from "@/components/SectionLabel";
 
 const label = "text-label text-ink";
@@ -16,8 +18,19 @@ const steps = [
 
 const positions = ["General application", "Audit Assistant", "Audit Trainee"];
 
+const initialState: FormState = { status: "idle", message: "" };
+
 export default function ApplicationForm() {
   const [fileName, setFileName] = useState("");
+  const [state, formAction, pending] = useActionState(sendApplication, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+      setFileName("");
+    }
+  }, [state]);
 
   return (
     <section id="apply" className="scroll-mt-4 bg-surface-100 py-20">
@@ -54,13 +67,17 @@ export default function ApplicationForm() {
           </p>
         </div>
 
-        <form className="flex w-[600px] shrink-0 flex-col gap-6 rounded-lg bg-surface-200 p-10 shadow-md">
+        <form
+          ref={formRef}
+          action={formAction}
+          className="relative flex w-[600px] shrink-0 flex-col gap-6 rounded-lg bg-surface-200 p-10 shadow-md">
           <div className="flex flex-col gap-1">
             <h3 className="text-h3 text-ink">Application form</h3>
             <p className="text-body-sm text-ink-muted">
               Fields marked * are required.
             </p>
           </div>
+          <Honeypot />
 
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
@@ -197,11 +214,14 @@ export default function ApplicationForm() {
               </span>
             </label>
 
+            <FormStatus state={state} />
+
             <button
               type="submit"
-              className="h-[52px] w-fit rounded-md bg-action px-8 text-button text-on-action hover:bg-action-hover"
+              disabled={pending}
+              className="h-[52px] w-fit rounded-md bg-action px-8 text-button text-on-action hover:bg-action-hover disabled:cursor-wait disabled:opacity-70"
             >
-              Send application
+              {pending ? "Sending…" : "Send application"}
             </button>
           </div>
         </form>

@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useActionState, useEffect, useRef } from "react";
+import { type FormState, sendContactMessage } from "@/app/actions/forms";
+import FormStatus, { Honeypot } from "@/components/FormStatus";
 
 const label = "text-label text-ink";
 const control =
@@ -12,9 +17,19 @@ const subjects = [
   "Other",
 ];
 
+const initialState: FormState = { status: "idle", message: "" };
+
 export default function ContactForm() {
+  const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.status === "success") formRef.current?.reset();
+  }, [state]);
+
   return (
-    <form className="flex flex-col gap-5">
+    <form ref={formRef} action={formAction} className="relative flex flex-col gap-5">
+      <Honeypot />
       <h2 className="text-h2 text-ink">
         How can we <span className="text-text-brand">help</span>?
       </h2>
@@ -27,6 +42,8 @@ export default function ContactForm() {
           id="name"
           name="name"
           type="text"
+          required
+          autoComplete="name"
           placeholder="Your name"
           className={`${control} h-12`}
         />
@@ -40,6 +57,8 @@ export default function ContactForm() {
           id="email"
           name="email"
           type="email"
+          required
+          autoComplete="email"
           placeholder="name@example.com"
           className={`${control} h-12`}
         />
@@ -53,6 +72,7 @@ export default function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
+          autoComplete="tel"
           placeholder="+94 7X XXX XXXX"
           aria-describedby="phone-help"
           className={`${control} h-12`}
@@ -99,16 +119,20 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
+          required
           placeholder="Tell us briefly what you need"
           className={`${control} h-[120px] resize-none py-3`}
         />
       </div>
 
+      <FormStatus state={state} />
+
       <button
         type="submit"
-        className="h-[52px] w-fit rounded-md bg-action px-8 text-button text-on-brand hover:bg-action-hover"
+        disabled={pending}
+        className="h-[52px] w-fit rounded-md bg-action px-8 text-button text-on-brand hover:bg-action-hover disabled:cursor-wait disabled:opacity-70"
       >
-        Send message
+        {pending ? "Sending…" : "Send message"}
       </button>
     </form>
   );

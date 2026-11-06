@@ -1,0 +1,62 @@
+import Button from "@/components/Button";
+import SectionLabel from "@/components/SectionLabel";
+import ServiceCard from "@/components/ServiceCard";
+
+const services = [
+  {
+    title: "Audit & Assurance",
+    description:
+      "Independent audits that give owners, lenders and regulators confidence in your accounts.",
+    image: "/images/home/service-audit.jpg",
+  },
+  {
+    title: "Tax Advisory",
+    description:
+      "Planning and filing for income tax, VAT and other levies, on time and in line with current rules.",
+    image: "/images/home/service-tax.jpg",
+  },
+  {
+    title: "Risk Advisory",
+    description:
+      "Reviews of controls and processes that find weak points before they become losses.",
+    image: "/images/home/service-risk.jpg",
+  },
+  {
+    title: "BPO Outsourcing",
+    description:
+      "Bookkeeping, payroll and reporting handled by our team so you can run the business.",
+    image: "/images/home/service-bpo.jpg",
+  },
+];
+
+export default function HomeServices() {
+  return (
+    <section className="bg-surface-brand-soft py-20">
+      <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
+        <div className="flex items-end justify-between gap-16">
+          <div className="flex w-[560px] flex-col gap-4">
+            <SectionLabel tone="onBrand">WHAT WE DO</SectionLabel>
+            <h2 className="text-h2 text-on-brand">
+              <span className="block">Services built</span>
+              <span className="block text-on-brand-muted">on expertise</span>
+            </h2>
+          </div>
+          <div className="flex w-[440px] flex-col items-start gap-4">
+            <p className="text-body text-on-brand-muted">
+              Four services, each led by a chartered accountant and delivered by
+              a qualified team in Panadura and Rathnapura.
+            </p>
+            <Button href="/services" variant="onBrandOutline">
+              View all services
+            </Button>
+          </div>
+        </div>
+        <div className="grid grid-cols-4 gap-6">
+          {services.map((s) => (
+            <ServiceCard key={s.title} href="/services" {...s} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

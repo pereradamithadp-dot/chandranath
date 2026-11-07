@@ -3,13 +3,16 @@
 import { useEffect } from "react";
 
 /**
- * Removes the Netlify free-tier badge (#nl-badge). The badge is injected
- * after page load and can re-insert itself, so we watch the DOM and remove
- * it whenever it appears.
+ * Removes the Netlify badge. Netlify's HUD script mounts it inside an iframe
+ * (#nl-badge-frame, or #nl-hud-frame for the site owner) after page load,
+ * so we watch the DOM and remove it whenever it appears.
  */
 export default function HideNetlifyBadge() {
   useEffect(() => {
-    const remove = () => document.getElementById("nl-badge")?.remove();
+    const remove = () =>
+      document
+        .querySelectorAll("#nl-badge, #nl-badge-frame, #nl-hud-frame")
+        .forEach((el) => el.remove());
     remove();
     const observer = new MutationObserver(remove);
     observer.observe(document.documentElement, {

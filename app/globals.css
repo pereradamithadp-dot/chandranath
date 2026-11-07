@@ -163,7 +163,11 @@ body {
   }
 }
 
-/* Hide the Netlify free-tier badge injected into the page. */
-#nl-badge {
+/* Hide the Netlify badge. Netlify's injected HUD script renders it inside an
+   iframe (#nl-badge-frame for visitors, #nl-hud-frame for the site owner),
+   so the inner #nl-badge can't be styled from here — hide the iframe itself. */
+#nl-badge,
+#nl-badge-frame,
+#nl-hud-frame {
   display: none !important;
 }

@@ -11,6 +11,7 @@ import ArticleBody from "@/components/news/ArticleBody";
 import PageHero from "@/components/PageHero";
 import SectionLabel from "@/components/SectionLabel";
 import { getPost, getPosts } from "@/lib/sanity/queries";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -22,14 +23,21 @@ export async function generateMetadata({
 }: PageProps<"/news/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return {};
-  return {
-    title: `${post.title} | Chandranath & Company`,
+  if (!post) return { robots: { index: false } };
+  const meta = pageMetadata({
+    title: post.title,
     description: post.summary,
+    path: post.href,
+    image: post.image || undefined,
+    type: "article",
+  });
+  return {
+    ...meta,
     openGraph: {
-      title: post.title,
-      description: post.summary,
-      images: [post.image],
+      ...meta.openGraph,
+      type: "article",
+      ...(post.publishedAt ? { publishedTime: post.publishedAt } : {}),
+      section: post.category,
     },
   };
 }

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata, SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -12,6 +14,16 @@ import VisionMission from "@/components/home/VisionMission";
 import Industries from "@/components/sections/Industries";
 import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: `${SITE_NAME} | Chartered Accountants`,
+    description: SITE_DESCRIPTION,
+    path: "/",
+  }),
+  // Full title on the home page, without the "| Chandranath & Company" template.
+  title: { absolute: `${SITE_NAME} | Chartered Accountants` },
+};
 
 export default function Home() {
   return (

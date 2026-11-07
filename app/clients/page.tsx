@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ClientsIntro from "@/components/clients/ClientsIntro";
 import LogoGrid from "@/components/clients/LogoGrid";
 import CtaBand from "@/components/CtaBand";
@@ -7,11 +8,12 @@ import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import Industries from "@/components/sections/Industries";
 
-export const metadata: Metadata = {
-  title: "Our Clients | Chandranath & Company",
+export const metadata: Metadata = pageMetadata({
+  title: "Our Clients",
   description:
     "Businesses and organisations that trust CHANDRANATH & COMPANY with their accounts, tax and advice.",
-};
+  path: "/clients",
+});
 
 export default function ClientsPage() {
   return (

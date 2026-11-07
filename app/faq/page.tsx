@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import CtaBand from "@/components/CtaBand";
 import FaqSection from "@/components/faq/FaqSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "FAQs | Chandranath & Company",
+export const metadata: Metadata = pageMetadata({
+  title: "FAQs",
   description:
     "Short answers to common questions about our services, fees, documents and working with us.",
-};
+  path: "/faq",
+});
 
 export default function FaqPage() {
   return (

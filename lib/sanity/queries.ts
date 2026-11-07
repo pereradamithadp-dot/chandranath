@@ -92,6 +92,7 @@ function toPostItem(p: RawPost): PostItem {
     href: `/news/${p.slug}`,
     category: p.category,
     date: dateFormat.format(new Date(p.publishedAt)),
+    publishedAt: p.publishedAt,
     title: p.title,
     summary: p.excerpt,
     image: imageUrl(p.image, 1200),

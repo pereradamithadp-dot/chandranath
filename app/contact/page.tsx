@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ContactMain from "@/components/contact/ContactMain";
 import ReachUs from "@/components/contact/ReachUs";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Chandranath & Company",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us",
   description:
     "Call, write or visit. We reply to every message within one working day.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

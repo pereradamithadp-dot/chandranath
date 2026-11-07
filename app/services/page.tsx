@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -7,11 +8,12 @@ import Industries from "@/components/sections/Industries";
 import Overview from "@/components/services/Overview";
 import ServiceDetail from "@/components/services/ServiceDetail";
 
-export const metadata: Metadata = {
-  title: "Services | Chandranath & Company",
+export const metadata: Metadata = pageMetadata({
+  title: "Services",
   description:
     "Four services, each led by a chartered accountant and delivered by a qualified team.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

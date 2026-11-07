@@ -162,3 +162,8 @@ body {
     transform: none;
   }
 }
+
+/* Hide the Netlify free-tier badge injected into the page. */
+#nl-badge {
+  display: none !important;
+}

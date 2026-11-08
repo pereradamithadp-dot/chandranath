@@ -27,23 +27,35 @@ const services = [
       "Bookkeeping, payroll and reporting handled by our team so you can run the business.",
     image: "/images/home/service-bpo.jpg",
   },
+  {
+    title: "Company Secretarial Services",
+    description:
+      "Statutory filings, registers and board support so your company stays on the right side of the law.",
+    image: "/images/home/mission.png",
+  },
+  {
+    title: "Accounting & Bookkeeping",
+    description:
+      "Accurate, up-to-date books and clear monthly reports so you always know where the business stands.",
+    image: "/images/home/service-bpo.jpg",
+  },
 ];
 
 export default function HomeServices() {
   return (
-    <section className="bg-surface-brand-soft py-20">
+    <section className="bg-surface-brand-soft py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
-          <div className="flex w-[560px] flex-col gap-4">
+        <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end lg:gap-16">
+          <div className="flex w-full flex-col gap-4 lg:w-[560px]">
             <SectionLabel tone="onBrand">WHAT WE DO</SectionLabel>
             <h2 className="text-h2 text-on-brand">
               <span className="block">Services built</span>
               <span className="block text-on-brand-muted">on expertise</span>
             </h2>
           </div>
-          <div className="flex w-[440px] flex-col items-start gap-4">
+          <div className="flex w-full flex-col items-start gap-4 lg:w-[440px]">
             <p className="text-body text-on-brand-muted">
-              Four services, each led by a chartered accountant and delivered by
+              Six services, each led by a chartered accountant and delivered by
               a qualified team in Panadura and Rathnapura.
             </p>
             <Button href="/services" variant="onBrandOutline">
@@ -51,7 +63,7 @@ export default function HomeServices() {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <ServiceCard key={s.title} href="/services" {...s} />
           ))}

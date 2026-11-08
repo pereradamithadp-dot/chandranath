@@ -10,9 +10,9 @@ export default async function HomeNews() {
   if (!lead) return null;
 
   return (
-    <section className="bg-surface-200 py-20">
+    <section className="bg-surface-200 py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
+        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:gap-16">
           <div className="flex flex-col gap-4">
             <SectionLabel>NEWS &amp; EVENTS</SectionLabel>
             <h2 className="text-h2 text-ink">
@@ -21,12 +21,12 @@ export default async function HomeNews() {
           </div>
           <Link
             href="/news"
-            className="flex h-11 items-center px-6 text-button whitespace-pre text-text-brand hover:underline"
+            className="flex h-11 items-center text-button whitespace-pre sm:px-6 text-text-brand hover:underline"
           >
             {"All news and events  →"}
           </Link>
         </div>
-        <div className="flex items-stretch gap-6">
+        <div className="flex flex-col items-stretch gap-6 lg:flex-row">
           <NewsOverlayCard
             category={lead.category}
             date={lead.date}
@@ -35,7 +35,7 @@ export default async function HomeNews() {
             image={lead.image}
             href={lead.href}
           />
-          <div className="flex min-w-0 flex-1 flex-col gap-6">
+          <div className="flex w-full min-w-0 flex-1 flex-col gap-6">
             {rows.map((p) => (
               <NewsRowCard
                 key={p.id}

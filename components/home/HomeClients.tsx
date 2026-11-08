@@ -9,9 +9,9 @@ export default async function HomeClients() {
   const row2 = featured.slice(3, 6);
 
   return (
-    <section className="bg-surface-200 py-16">
-      <div className="mx-auto flex max-w-page items-center gap-16 px-4">
-        <div className="flex w-[380px] shrink-0 flex-col items-start gap-5">
+    <section className="bg-surface-200 py-12 lg:py-16">
+      <div className="mx-auto flex max-w-page flex-col gap-10 px-4 lg:flex-row lg:items-center lg:gap-16">
+        <div className="flex w-full shrink-0 flex-col lg:w-[380px] items-start gap-5">
           <SectionLabel>OUR CLIENTS</SectionLabel>
           <h2 className="text-h2 text-ink">
             <span className="block">Trusted by</span>
@@ -26,12 +26,12 @@ export default async function HomeClients() {
           </Button>
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-6">
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 sm:flex-nowrap sm:gap-6">
             {row1.map((c) => (
               <ClientTile key={c.id} name={c.name} logo={c.logo} />
             ))}
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 sm:flex-nowrap sm:gap-6">
             {row2.map((c) => (
               <ClientTile key={c.id} name={c.name} logo={c.logo} />
             ))}

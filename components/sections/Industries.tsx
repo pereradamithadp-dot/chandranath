@@ -41,25 +41,25 @@ type IndustriesProps = {
 export default function Industries({
   heading = ["Trusted across", "Sri Lankan industries"],
   description = "From hotels and tea estates to traders, manufacturers and investment companies, we work with businesses of every size.",
-  spacing = "py-20",
+  spacing = "py-12 lg:py-20",
   descriptionWidth = "w-[440px]",
 }: IndustriesProps) {
   return (
     <section className={`bg-surface-200 ${spacing}`}>
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
-          <div className="flex w-[600px] flex-col gap-4">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end lg:gap-16">
+          <div className="flex w-full max-w-[600px] flex-col gap-4">
             <SectionLabel>INDUSTRIES WE SERVE</SectionLabel>
             <h2 className="text-h2 text-ink">
               <span className="block">{heading[0]}</span>
               <span className="block text-text-brand">{heading[1]}</span>
             </h2>
           </div>
-          <p className={`${descriptionWidth} text-body text-ink-muted`}>
+          <p className={`max-w-full ${descriptionWidth} text-body text-ink-muted`}>
             {description}
           </p>
         </div>
-        <div className="flex gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:flex">
           {industries.map((i) => (
             <IndustryTile key={i.title} {...i} />
           ))}

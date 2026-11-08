@@ -3,7 +3,7 @@ import SectionLabel from "@/components/SectionLabel";
 
 export default function VisionMission() {
   return (
-    <section className="bg-surface-200 py-20">
+    <section className="bg-surface-200 py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
         <div className="flex flex-col items-center gap-4">
           <SectionLabel>VISION AND MISSION</SectionLabel>
@@ -11,7 +11,7 @@ export default function VisionMission() {
             What <span className="text-text-brand">guides</span> our work
           </h2>
         </div>
-        <div className="flex items-stretch gap-6">
+        <div className="flex flex-col items-stretch gap-6 md:flex-row">
           <article className="group/card flex min-w-0 flex-1 flex-col overflow-hidden rounded-lg border border-line bg-surface-200 transition-colors duration-500 ease-in-out hover:border-surface-brand-soft hover:bg-surface-brand-soft">
             <div className="relative h-[260px] w-full overflow-hidden">
               <Image
@@ -22,7 +22,7 @@ export default function VisionMission() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col gap-4 p-10">
+            <div className="flex flex-col gap-4 p-6 sm:p-10">
               <div className="flex items-center gap-4 [&_p]:transition-colors [&_p]:duration-500 [&_span[aria-hidden]]:duration-500 [&_span[aria-hidden]]:transition-colors  group-hover/card:[&_p]:text-on-brand group-hover/card:[&_span[aria-hidden]]:bg-on-brand">
                 <span className="flex size-[52px] items-center justify-center rounded-pill bg-action">
                   <Image
@@ -51,7 +51,7 @@ export default function VisionMission() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col gap-4 p-10">
+            <div className="flex flex-col gap-4 p-6 sm:p-10">
               <div className="flex items-center gap-4 [&_p]:transition-colors [&_p]:duration-500 [&_span[aria-hidden]]:duration-500 [&_span[aria-hidden]]:transition-colors group-hover/card:[&_p]:text-text-brand group-hover/card:[&_span[aria-hidden]]:bg-text-brand">
                 <span className="flex size-[52px] items-center justify-center rounded-pill bg-surface-200 transition-colors duration-500 ease-in-out group-hover/card:bg-tint">
                   <Image

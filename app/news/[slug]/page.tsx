@@ -78,9 +78,9 @@ async function PostContent({
         image={post.image}
       />
 
-      <article className="bg-surface-200 py-16">
+      <article className="bg-surface-200 py-10 lg:py-16">
         <div className="mx-auto flex max-w-[760px] flex-col gap-8 px-4">
-          <div className="flex items-center gap-3 whitespace-nowrap">
+          <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-pill bg-action px-3 py-1 text-eyebrow text-on-action">
               {post.category.toUpperCase()}
             </span>
@@ -120,7 +120,7 @@ async function PostContent({
                 More news and <span className="text-text-brand">insights</span>
               </h2>
             </div>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {more.map((p) => (
                 <NewsCard key={p.id} {...p} />
               ))}
@@ -141,7 +141,7 @@ function PostSkeleton() {
           <div className="h-12 w-2/3 animate-pulse rounded bg-white/20" />
         </div>
       </section>
-      <div className="bg-surface-200 py-16">
+      <div className="bg-surface-200 py-10 lg:py-16">
         <div className="mx-auto flex max-w-[760px] flex-col gap-8 px-4">
           <div className="h-6 w-48 animate-pulse rounded bg-line" />
           <div className="h-16 w-full animate-pulse rounded bg-line" />

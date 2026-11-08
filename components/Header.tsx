@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "./Button";
 import Wordmark from "./Wordmark";
+import MobileMenu from "./MobileMenu";
 
 const links = [
   { href: "/", label: "Home" },
@@ -12,6 +13,9 @@ const links = [
   // { href: "/careers", label: "Careers" },
 ];
 
+const cta =
+  "shadow-[0_6px_18px_rgba(189,31,54,0.4)] ring-2 ring-action/20 hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(189,31,54,0.5)]";
+
 type HeaderProps = {
   /** href of the current page, e.g. "/about" */
   active?: string;
@@ -19,21 +23,24 @@ type HeaderProps = {
 
 export default function Header({ active = "/" }: HeaderProps) {
   return (
-    <header className="w-full">
+    <header className="sticky -top-[54px] z-50 w-full shadow-sm sm:-top-[34px]">
       <div className="bg-surface-brand py-2 text-caption text-on-brand">
-        <div className="mx-auto flex max-w-page items-center justify-between px-4">
+        <div className="mx-auto flex max-w-page flex-col items-center justify-between gap-0.5 px-4 text-center sm:flex-row sm:text-left">
           <p>No. 08, Kulathunga Road, Panadura</p>
-          <p className="whitespace-pre">
-            Tel +94 38 2237256 {"  |  "} info@chandranath.com
+          <p className="sm:whitespace-pre">
+            Tel +94 38 2237256 <span className="hidden sm:inline">{"  |  "}</span>
+            <span className="sm:hidden"> · </span>
+            info@chandranath.com
           </p>
         </div>
       </div>
-      <div className="border-b border-line bg-surface-200 py-4">
-        <div className="mx-auto flex max-w-page items-center justify-between px-4">
-          <Link href="/" aria-label="Chandranath & Company home">
+      <div className="relative border-b border-line bg-surface-200 py-4">
+        <div className="mx-auto flex max-w-page items-center justify-between gap-3 px-4">
+          <Link href="/" aria-label="Chandranath & Company home" className="min-w-0">
             <Wordmark />
           </Link>
-          <nav className="flex items-center gap-6">
+          <MobileMenu links={links} active={active} />
+          <nav className="hidden items-center gap-6 lg:flex">
             {links.map((l) => {
               const isActive = l.href === active;
               return (
@@ -51,7 +58,9 @@ export default function Header({ active = "/" }: HeaderProps) {
                 </Link>
               );
             })}
-            <Button href="/contact">Contact Us</Button>
+            <Button href="/contact" className={cta}>
+              Contact Us
+            </Button>
           </nav>
         </div>
       </div>

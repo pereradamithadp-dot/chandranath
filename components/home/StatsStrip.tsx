@@ -28,13 +28,13 @@ const stats = [
 export default function StatsStrip() {
   return (
     <section className="bg-surface-brand-soft py-12">
-      <div className="mx-auto flex max-w-page items-center gap-6 px-4">
+      <div className="mx-auto grid max-w-page grid-cols-2 gap-6 px-4 lg:flex lg:items-center">
         {stats.map((s, i) => (
           <div key={s.label} className="flex flex-1 items-center gap-6">
             {i > 0 && (
               <span
                 aria-hidden
-                className="h-14 w-px shrink-0 bg-on-brand-muted opacity-35"
+                className="hidden h-14 w-px shrink-0 bg-on-brand-muted opacity-35 lg:block"
               />
             )}
             <div className="flex-1">

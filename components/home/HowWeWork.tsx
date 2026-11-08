@@ -23,14 +23,14 @@ export default function HowWeWork() {
   return (
     <section className="group/process bg-surface-200 py-8">
       <div className="mx-auto max-w-page px-4">
-        <div className="flex flex-col gap-12 rounded-lg border border-line bg-surface-100 p-16">
+        <div className="flex flex-col gap-8 rounded-lg border border-line bg-surface-100 p-6 sm:p-10 lg:gap-12 lg:p-16">
           <div className="flex flex-col items-center gap-4">
             <SectionLabel>OUR PROCESS</SectionLabel>
             <h2 className="text-h2 text-ink">
               How we work <span className="text-text-brand">with you</span>
             </h2>
           </div>
-          <ol className="flex gap-6">
+          <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:flex lg:gap-6">
             {steps.map((s, i) => (
               <li key={s.title} className="flex min-w-0 flex-1 flex-col gap-4">
                 <div className="flex items-center gap-3">

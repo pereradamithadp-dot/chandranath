@@ -9,9 +9,9 @@ const stats = [
 
 export default function Introduction() {
   return (
-    <section className="bg-surface-200 py-24">
-      <div className="mx-auto flex max-w-page items-center gap-16 px-4">
-        <div className="flex min-w-0 flex-1 flex-col items-start gap-6">
+    <section className="bg-surface-200 py-12 lg:py-24">
+      <div className="mx-auto flex max-w-page flex-col-reverse items-center gap-10 px-4 lg:flex-row lg:gap-16">
+        <div className="flex w-full min-w-0 flex-1 flex-col items-start gap-6">
           <SectionLabel>WHO WE ARE</SectionLabel>
           <h2 className="text-h2 text-ink">
             <span className="block">A firm built on trust,</span>
@@ -27,9 +27,9 @@ export default function Introduction() {
             Our branch in Pelwadiya, Rathnapura serves clients across the
             Sabaragamuwa Province.
           </p>
-          <div className="flex w-full items-center gap-8">
+          <div className="flex w-full flex-wrap items-center gap-x-6 gap-y-4 sm:gap-8">
             {stats.map((s, i) => (
-              <div key={s.label} className="flex items-center gap-8">
+              <div key={s.label} className="flex items-center gap-6 sm:gap-8">
                 {i > 0 && <span aria-hidden className="h-12 w-px bg-line" />}
                 <div className="flex flex-col gap-1 whitespace-nowrap">
                   <p className="text-h2 text-text-brand">{s.value}</p>
@@ -40,8 +40,8 @@ export default function Introduction() {
           </div>
         </div>
 
-        <div className="relative h-[520px] w-[560px] shrink-0">
-          <div className="absolute left-[140px] top-0 h-[460px] w-[420px] overflow-hidden rounded-lg">
+        <div className="relative h-[340px] w-full shrink-0 sm:h-[440px] lg:h-[520px] lg:w-[560px]">
+          <div className="absolute left-0 top-0 h-full w-full overflow-hidden lg:left-[140px] lg:h-[460px] lg:w-[420px] rounded-lg">
             <Image
               src="/images/home/about-office.png"
               alt="Chandranath & Company office building"
@@ -50,7 +50,7 @@ export default function Introduction() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-0 top-[290px] h-[220px] w-[280px] overflow-hidden rounded-lg border-8 border-surface-200">
+          <div className="absolute left-0 top-[290px] hidden h-[220px] w-[280px] lg:block overflow-hidden rounded-lg border-8 border-surface-200">
             <Image
               src="/images/home/industry-investments.png"
               alt="A client meeting"
@@ -59,7 +59,7 @@ export default function Introduction() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-5 top-[60px] flex flex-col gap-1 rounded-lg bg-surface-200 px-6 py-5 whitespace-nowrap shadow-md">
+          <div className="absolute bottom-4 left-4 flex lg:bottom-auto lg:left-5 lg:top-[60px] flex-col gap-1 rounded-lg bg-surface-200 px-6 py-5 whitespace-nowrap shadow-md">
             <p className="text-h3 text-text-brand">Since 2010</p>
             <p className="text-caption text-ink-muted">Panadura, Sri Lanka</p>
           </div>

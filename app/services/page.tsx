@@ -11,7 +11,7 @@ import ServiceDetail from "@/components/services/ServiceDetail";
 export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
-    "Four services, each led by a chartered accountant and delivered by a qualified team.",
+    "Six services, each led by a chartered accountant and delivered by a qualified team.",
   path: "/services",
 });
 
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <main>
         <PageHero
           title="Services"
-          lead="Four services, each led by a chartered accountant and delivered by a qualified team."
+          lead="Six services, each led by a chartered accountant and delivered by a qualified team."
           image="/images/home/industry-investments.png"
         />
         <Overview />
@@ -87,6 +87,40 @@ export default function ServicesPage() {
           cta="Send an enquiry about outsourcing"
           image="/images/home/about-team.png"
           badge="Your finance team, extended"
+          badgeLeft={246}
+        />
+        <ServiceDetail
+          number="05"
+          title="Company Secretarial Services"
+          description="We look after the statutory side of running a company, so filings are made on time and your records are always in order."
+          items={[
+            "Company incorporation and registration",
+            "Annual returns and statutory filings",
+            "Maintaining statutory registers and records",
+            "Preparing board and shareholder meeting documents",
+            "Changes to directors, shareholders and share capital",
+            "Advice on corporate governance and compliance",
+          ]}
+          cta="Send an enquiry about company secretarial"
+          image="/images/home/about-office.png"
+          badge="Filings made on time"
+        />
+        <ServiceDetail
+          panel
+          number="06"
+          title="Accounting & Bookkeeping"
+          description="Reliable day-to-day accounting that gives you accurate numbers when you need them, for decisions, tax and audit."
+          items={[
+            "Recording and reconciling daily transactions",
+            "Bank and ledger reconciliations",
+            "Preparation of financial statements",
+            "Monthly management accounts",
+            "Accounting software setup and support",
+            "Year-end preparation for audit and tax",
+          ]}
+          cta="Send an enquiry about accounting"
+          image="/images/home/service-bpo.jpg"
+          badge="Books you can rely on"
           badgeLeft={246}
         />
         <Industries />

@@ -4,9 +4,9 @@ import SectionLabel from "@/components/SectionLabel";
 
 export default function Offices() {
   return (
-    <section className="bg-surface-200 py-20">
+    <section className="bg-surface-200 py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end lg:gap-16">
           <div className="flex flex-col gap-4">
             <SectionLabel>OUR OFFICES</SectionLabel>
             <h2 className="text-h2 text-ink">
@@ -18,7 +18,7 @@ export default function Offices() {
           </div>
           <Button href="/contact">Contact us</Button>
         </div>
-        <div className="flex items-start gap-6">
+        <div className="flex flex-col items-stretch gap-8 md:flex-row md:items-start md:gap-6">
           <div className="flex min-w-0 flex-1 flex-col gap-4">
             <h3 className="text-h4 text-ink">Panadura (Head Office)</h3>
             <ContactInfoCard

@@ -33,8 +33,8 @@ export default function ApplicationForm() {
   }, [state]);
 
   return (
-    <section id="apply" className="scroll-mt-4 bg-surface-100 py-20">
-      <div className="mx-auto flex max-w-page items-start gap-16 px-4">
+    <section id="apply" className="scroll-mt-4 bg-surface-100 py-12 lg:py-20">
+      <div className="mx-auto flex max-w-page flex-col items-stretch gap-10 px-4 lg:flex-row lg:items-start lg:gap-16">
         <div className="flex min-w-0 flex-1 flex-col items-start gap-8">
           <div className="flex flex-col gap-4">
             <SectionLabel>APPLY NOW</SectionLabel>
@@ -70,7 +70,7 @@ export default function ApplicationForm() {
         <form
           ref={formRef}
           action={formAction}
-          className="relative flex w-[600px] shrink-0 flex-col gap-6 rounded-lg bg-surface-200 p-10 shadow-md">
+          className="relative flex w-full shrink-0 flex-col gap-6 rounded-lg bg-surface-200 p-5 sm:p-10 lg:w-[600px] shadow-md">
           <div className="flex flex-col gap-1">
             <h3 className="text-h3 text-ink">Application form</h3>
             <p className="text-body-sm text-ink-muted">

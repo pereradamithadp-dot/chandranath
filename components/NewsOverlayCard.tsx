@@ -19,7 +19,7 @@ export default function NewsOverlayCard({
   href = "/news",
 }: NewsOverlayCardProps) {
   return (
-    <article className="relative h-[460px] w-[588px] shrink-0 overflow-hidden rounded-lg">
+    <article className="relative h-[400px] w-full shrink-0 sm:h-[460px] lg:w-[588px] overflow-hidden rounded-lg">
       <Image
         src={image}
         alt=""
@@ -28,7 +28,7 @@ export default function NewsOverlayCard({
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(31,22,24,0)] from-25% to-[rgba(31,22,24,0.9)]" />
-      <div className="absolute inset-x-8 bottom-8 flex flex-col items-start gap-3">
+      <div className="absolute inset-x-5 bottom-5 sm:inset-x-8 sm:bottom-8 flex flex-col items-start gap-3">
         <div className="flex items-center gap-3">
           <span className="rounded-pill bg-action px-3 py-1 text-eyebrow whitespace-nowrap text-on-action">
             {category.toUpperCase()}

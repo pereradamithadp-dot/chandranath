@@ -12,16 +12,16 @@ export default function Posts({ posts }: { posts: PostItem[] }) {
   const visible = posts.filter((p) => filter === "All" || p.category === filter);
 
   return (
-    <section className="bg-surface-200 pb-16 pt-12">
+    <section className="bg-surface-200 pb-12 pt-10 lg:pb-16 lg:pt-12">
       <div className="mx-auto flex max-w-page flex-col gap-10 px-4">
-        <div className="flex items-end justify-between">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div className="flex flex-col gap-4">
             <SectionLabel>ALL POSTS</SectionLabel>
             <h2 className="text-h2 text-ink">
               More news and <span className="text-text-brand">insights</span>
             </h2>
           </div>
-          <div role="group" aria-label="Filter posts" className="flex gap-3">
+          <div role="group" aria-label="Filter posts" className="flex flex-wrap gap-3">
             {filters.map((f) => {
               const active = f === filter;
               return (
@@ -44,7 +44,7 @@ export default function Posts({ posts }: { posts: PostItem[] }) {
         </div>
 
         {visible.length > 0 ? (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((p) => (
               <NewsCard key={p.id} {...p} />
             ))}

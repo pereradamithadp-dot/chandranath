@@ -8,7 +8,7 @@ type IndustryTileProps = {
 
 export default function IndustryTile({ title, text, image }: IndustryTileProps) {
   return (
-    <div className="relative h-[380px] min-w-0 flex-1 overflow-hidden rounded-lg">
+    <div className="relative h-[320px] min-w-0 flex-1 sm:h-[380px] overflow-hidden rounded-lg">
       <Image
         src={image}
         alt=""

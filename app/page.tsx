@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { pageMetadata, SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
@@ -51,10 +52,14 @@ export default function Home() {
           <VisionMission />
         </Reveal>
         <Reveal effect="up">
-          <HomeClients />
+          <Suspense fallback={<div className="min-h-[360px]" />}>
+            <HomeClients />
+          </Suspense>
         </Reveal>
         <Reveal effect="blur">
-          <HomeNews />
+          <Suspense fallback={<div className="min-h-[560px]" />}>
+            <HomeNews />
+          </Suspense>
         </Reveal>
         <Reveal effect="scale">
           <CtaBand />

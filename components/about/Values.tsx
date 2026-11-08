@@ -21,9 +21,9 @@ const values = [
 
 export default function Values() {
   return (
-    <section className="bg-surface-brand-soft py-20">
+    <section className="bg-surface-brand-soft py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end lg:gap-16">
           <div className="flex flex-col gap-4">
             <SectionLabel tone="onBrand">OUR VALUES</SectionLabel>
             <h2 className="text-h2 text-on-brand">
@@ -31,15 +31,15 @@ export default function Values() {
               <span className="block text-on-brand-muted">every engagement</span>
             </h2>
           </div>
-          <p className="w-[400px] text-body text-on-brand-muted">
+          <p className="w-full max-w-[400px] text-body text-on-brand-muted">
             How we work with every client, large or small.
           </p>
         </div>
-        <ul className="flex items-stretch gap-6">
+        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <li
               key={v.title}
-              className="flex min-w-0 flex-1 flex-col gap-3 rounded-lg border border-white/25 bg-white/10 p-8"
+              className="flex min-w-0 flex-col gap-3 rounded-lg border border-white/25 bg-white/10 p-6 sm:p-8"
             >
               <p className="text-h1 text-on-brand-muted opacity-50">
                 {String(i + 1).padStart(2, "0")}

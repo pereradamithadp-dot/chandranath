@@ -17,8 +17,8 @@ export default function NewsRowCard({
   href = "/news",
 }: NewsRowCardProps) {
   return (
-    <article className="flex min-h-0 w-full flex-1 items-center gap-5 rounded-lg border border-line bg-surface-200 p-4">
-      <div className="relative h-[136px] w-[180px] shrink-0 overflow-hidden rounded-md">
+    <article className="flex min-h-0 w-full flex-1 flex-col items-stretch gap-4 rounded-lg sm:flex-row sm:items-center sm:gap-5 border border-line bg-surface-200 p-4">
+      <div className="relative h-[180px] w-full shrink-0 sm:h-[136px] sm:w-[180px] overflow-hidden rounded-md">
         <Image
           src={image}
           alt=""

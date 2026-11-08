@@ -9,6 +9,8 @@ const services = [
   "Tax Advisory",
   "Risk Advisory",
   "Business Process Outsourcing (BPO) Operations",
+  "Company Secretarial Services",
+  "Accounting & Bookkeeping",
 ];
 
 const company = [
@@ -49,10 +51,10 @@ const copyrightYear = 2026;
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-brand pb-8 pt-16 text-on-brand">
+    <footer className="bg-surface-brand pb-8 pt-12 text-on-brand lg:pt-16">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex gap-12">
-          <div className="flex w-[400px] flex-col gap-3">
+        <div className="flex flex-col gap-10 md:grid md:grid-cols-2 lg:flex lg:flex-row lg:gap-12">
+          <div className="flex w-full flex-col gap-3 lg:w-[400px]">
             <Wordmark tone="onBrand" />
             <p className={`text-body-sm ${muted}`}>
               Chartered accountants in Panadura. Registered in 2010, with a
@@ -60,7 +62,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex w-[210px] flex-col gap-3 text-body-sm">
+          <div className="flex w-full flex-col lg:w-[210px] gap-3 text-body-sm">
             <p className="text-label">Services</p>
             {services.map((s) => (
               <p key={s} className={muted}>
@@ -69,7 +71,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="flex w-[170px] flex-col gap-3 text-body-sm">
+          <div className="flex w-full flex-col lg:w-[170px] gap-3 text-body-sm">
             <p className="text-label">Company</p>
             {company.map((l) => (
               <Link
@@ -82,7 +84,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className={`flex min-w-0 flex-1 flex-col gap-3 text-body-sm ${muted}`}>
+          <div className={`flex w-full min-w-0 flex-1 flex-col gap-3 text-body-sm ${muted}`}>
             <p className="text-label text-on-brand">Contact</p>
             <ContactRow icon={MapPin}>
               <p>No. 08, Kulathunga Road, Panadura</p>
@@ -115,12 +117,12 @@ export default function Footer() {
 
         <div className="h-px w-full bg-on-brand-muted opacity-30" />
 
-        <div className={`flex items-center justify-between text-caption ${muted}`}>
+        <div className={`flex flex-col items-start justify-between gap-2 text-caption md:flex-row md:items-center ${muted}`}>
           <p>
             © {copyrightYear} CHANDRANATH &amp; COMPANY, Chartered
             Accountants. All rights reserved.
           </p>
-          <p className="whitespace-pre">
+          <p className="lg:whitespace-pre">
             Useful links: {usefulLinks.join("  ·  ")}
           </p>
         </div>

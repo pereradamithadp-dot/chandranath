@@ -44,7 +44,7 @@ export default function OfficesPanel() {
   const office = offices[active];
 
   return (
-    <div className="flex min-w-0 flex-1 flex-col items-start gap-5">
+    <div className="flex w-full min-w-0 flex-1 flex-col items-start gap-5">
       <div className="flex w-full flex-col gap-4">
         <SectionLabel>OUR OFFICES</SectionLabel>
         <h2 className="text-h3 text-ink">
@@ -53,7 +53,7 @@ export default function OfficesPanel() {
         </h2>
       </div>
 
-      <div role="group" aria-label="Choose an office" className="flex gap-3">
+      <div role="group" aria-label="Choose an office" className="flex flex-wrap gap-3">
         {(Object.keys(offices) as OfficeKey[]).map((key) => {
           const isActive = key === active;
           return (
@@ -77,7 +77,7 @@ export default function OfficesPanel() {
       {(Object.keys(offices) as OfficeKey[]).map((key) => (
         <div
           key={key}
-          className="flex w-full flex-col gap-3 rounded-lg border border-line bg-surface-200 p-8"
+          className="flex w-full flex-col gap-3 rounded-lg border border-line bg-surface-200 p-5 sm:p-8"
         >
           <h3 className="text-h4 text-ink">{offices[key].title}</h3>
           <p className="whitespace-pre-line text-body-sm text-ink-muted">
@@ -101,7 +101,7 @@ export default function OfficesPanel() {
         </div>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <Button href={office.directions} variant="secondary">
           Get directions
         </Button>

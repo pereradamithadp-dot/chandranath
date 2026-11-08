@@ -14,12 +14,12 @@ export default function Wordmark({ tone = "default" }: WordmarkProps) {
         alt="Chandranath & Company logo"
         width={52}
         height={48}
-        className="h-12 w-[52px] rounded-sm object-contain transition-transform duration-500 ease-in-out group-hover/logo:scale-110 group-hover/logo:-rotate-6"
+        className="h-10 w-[43px] shrink-0 rounded-sm sm:h-12 sm:w-[52px] object-contain transition-transform duration-500 ease-in-out group-hover/logo:scale-110 group-hover/logo:-rotate-6"
         priority
       />
-      <div className="flex flex-col gap-1">
+      <div className="flex min-w-0 flex-col gap-1">
         <span
-          className={`text-wordmark whitespace-nowrap transition-colors duration-300 ease-in-out ${
+          className={`text-wordmark whitespace-nowrap max-[420px]:text-[15px] max-[420px]:leading-5 transition-colors duration-300 ease-in-out ${
             onBrand
               ? "text-on-brand group-hover/logo:text-on-brand-muted"
               : "text-text-brand group-hover/logo:text-action-hover"
@@ -28,7 +28,7 @@ export default function Wordmark({ tone = "default" }: WordmarkProps) {
           CHANDRANATH &amp; COMPANY
         </span>
         <span
-          className={`text-caption ${
+          className={`text-caption max-[420px]:text-[10px] ${
             onBrand ? "text-on-brand-muted" : "text-ink-muted"
           }`}
         >

@@ -16,9 +16,9 @@ const jobs = [
 
 export default function OpenPositions() {
   return (
-    <section className="bg-surface-200 py-20">
+    <section className="bg-surface-200 py-12 lg:py-20">
       <div className="mx-auto flex max-w-page flex-col gap-12 px-4">
-        <div className="flex items-end justify-between gap-16">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end lg:gap-16">
           <div className="flex flex-col gap-4">
             <SectionLabel>OPEN POSITIONS</SectionLabel>
             <h2 className="text-h2 text-ink">
@@ -26,7 +26,7 @@ export default function OpenPositions() {
               <span className="block text-text-brand">vacancies</span>
             </h2>
           </div>
-          <p className="w-[420px] text-body text-ink-muted">
+          <p className="w-full max-w-[420px] text-body text-ink-muted">
             Each position opens a short page with requirements and how to apply.
           </p>
         </div>
@@ -36,13 +36,13 @@ export default function OpenPositions() {
             {jobs.map((j) => (
               <li
                 key={j.title}
-                className="flex items-center gap-8 px-8 py-6"
+                className="flex flex-col items-start gap-4 px-5 py-6 sm:px-8 lg:flex-row lg:items-center lg:gap-8"
               >
-                <div className="flex w-[320px] shrink-0 flex-col gap-2">
-                  <h3 className="text-h4 whitespace-nowrap text-ink">
+                <div className="flex w-full shrink-0 flex-col gap-2 lg:w-[320px]">
+                  <h3 className="text-h4 text-ink lg:whitespace-nowrap">
                     {j.title}
                   </h3>
-                  <ul className="flex gap-2">
+                  <ul className="flex flex-wrap gap-2">
                     {j.tags.map((t) => (
                       <li
                         key={t}
@@ -60,7 +60,7 @@ export default function OpenPositions() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-8 border-t border-line bg-surface-100 px-8 py-6">
+          <div className="flex flex-col items-start gap-4 border-t border-line bg-surface-100 px-5 py-6 sm:px-8 lg:flex-row lg:items-center lg:gap-8">
             <p className="min-w-0 flex-1 text-body text-ink">
               Don&apos;t see a suitable role? Send your CV and we will keep it on
               file.

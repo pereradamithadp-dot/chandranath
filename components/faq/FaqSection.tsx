@@ -79,9 +79,9 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-surface-200 py-16">
+    <section className="bg-surface-200 py-12 lg:py-16">
       <div className="mx-auto flex max-w-page flex-col gap-10 px-4">
-        <div className="flex items-end justify-between gap-16">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end lg:gap-16">
           <div className="flex flex-col gap-4">
             <SectionLabel>FAQS</SectionLabel>
             <h2 className="text-h2 text-ink">
@@ -89,14 +89,14 @@ export default function FaqSection() {
               <span className="block text-text-brand">questions</span>
             </h2>
           </div>
-          <p className="w-[420px] text-body text-ink-muted">
+          <p className="w-full max-w-[420px] text-body text-ink-muted">
             Short answers about our services, fees, documents and working with
             us. Pick a topic to jump to it.
           </p>
         </div>
 
-        <div className="flex items-start gap-12">
-          <aside className="sticky top-6 flex w-[300px] shrink-0 flex-col gap-6">
+        <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-start lg:gap-12">
+          <aside className="flex w-full shrink-0 flex-col gap-6 lg:sticky lg:top-6 lg:w-[300px]">
             <nav
               aria-label="FAQ topics"
               className="flex flex-col gap-1 rounded-lg border border-line bg-surface-200 p-5"
@@ -144,7 +144,7 @@ export default function FaqSection() {
             </div>
           </aside>
 
-          <div className="flex min-w-0 flex-1 flex-col gap-10">
+          <div className="flex w-full min-w-0 flex-1 flex-col gap-10">
             {groups.map((g) => (
               <div
                 key={g.id}

@@ -55,7 +55,7 @@ export default function HeroCarousel() {
     <section
       aria-roledescription="carousel"
       aria-label="Highlights"
-      className="relative h-[640px] w-full overflow-hidden bg-crimson-800"
+      className="relative h-[600px] w-full sm:h-[640px] overflow-hidden bg-crimson-800"
     >
       <AnimatePresence initial={false}>
         <motion.div
@@ -77,7 +77,7 @@ export default function HeroCarousel() {
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(100,18,32,0.94)] via-[rgba(100,18,32,0.74)] via-55% to-[rgba(100,18,32,0.12)]" />
           <div className="absolute inset-0">
             <div className="mx-auto flex h-full max-w-page items-center px-4">
-              <div className="flex w-[660px] max-w-full flex-col items-start gap-6">
+              <div className="flex w-[660px] max-w-full flex-col items-start gap-5 pb-8 sm:gap-6 sm:pb-0">
                 <Eyebrow>{slide.eyebrow}</Eyebrow>
                 <h1 className="text-display text-on-brand">
                   {slide.title.map((line) => (
@@ -87,7 +87,7 @@ export default function HeroCarousel() {
                   ))}
                 </h1>
                 <p className="text-body-lg text-on-brand-muted">{slide.text}</p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   <Button href="/contact" variant="onBrandSolid" size="lg">
                     Book a consultation
                   </Button>
@@ -105,7 +105,7 @@ export default function HeroCarousel() {
         type="button"
         aria-label="Previous slide"
         onClick={() => go(index - 1)}
-        className="absolute left-8 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-pill bg-surface-200 transition-colors duration-300 ease-in-out hover:bg-on-brand-muted"
+        className="absolute left-8 top-1/2 hidden size-12 sm:flex -translate-y-1/2 items-center justify-center rounded-pill bg-surface-200 transition-colors duration-300 ease-in-out hover:bg-on-brand-muted"
       >
         <Image
           src="/images/icons/chevron-left.svg"
@@ -118,7 +118,7 @@ export default function HeroCarousel() {
         type="button"
         aria-label="Next slide"
         onClick={() => go(index + 1)}
-        className="absolute right-8 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-pill bg-surface-200 transition-colors duration-300 ease-in-out hover:bg-on-brand-muted"
+        className="absolute right-8 top-1/2 hidden size-12 sm:flex -translate-y-1/2 items-center justify-center rounded-pill bg-surface-200 transition-colors duration-300 ease-in-out hover:bg-on-brand-muted"
       >
         <Image
           src="/images/icons/chevron-right.svg"

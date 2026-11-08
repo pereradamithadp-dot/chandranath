@@ -30,7 +30,7 @@ export default function NewsCard({
         />
       </div>
       <div className="flex flex-col gap-3 p-6">
-        <div className="flex items-center gap-3 whitespace-nowrap">
+        <div className="flex flex-wrap items-center gap-3">
           <span className="text-label text-text-brand">{category}</span>
           <time className="text-caption text-ink-muted">{date}</time>
         </div>

@@ -1,6 +1,6 @@
 const socials = [
   { label: "WhatsApp", icon: "W", href: "https://wa.me/94761950780" },
-  { label: "Facebook", icon: "f", href: "#" },
+  { label: "Facebook", icon: "f", href: "https://www.facebook.com/share/1FhhaKz9Zu/?mibextid=wwXIfr" },
   { label: "LinkedIn", icon: "in", href: "#" },
 ];
 
@@ -17,6 +17,9 @@ export default function SocialLinks({ tone = "default" }: SocialLinksProps) {
         <li key={s.label}>
           <a
             href={s.href}
+            {...(s.href.startsWith("http")
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className={`flex items-center gap-2 rounded-pill border py-1 pl-1 pr-3 text-caption ${
               onBrand
                 ? "border-on-brand-muted text-on-brand"

@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run build:studio && next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && npm run build:studio && next build",
+    "start": "node init && next start",
     "lint": "eslint",
     "seed:sanity": "node --env-file=.env.local scripts/seed-sanity.mjs",
-    "build:studio": "SANITY_STUDIO_PROJECT_ID=${NEXT_PUBLIC_SANITY_PROJECT_ID:-gbjchmkw} SANITY_STUDIO_DATASET=${NEXT_PUBLIC_SANITY_DATASET:-production} sanity build public/studio --yes"
+    "build:studio": "node init && SANITY_STUDIO_PROJECT_ID=${NEXT_PUBLIC_SANITY_PROJECT_ID:-gbjchmkw} SANITY_STUDIO_DATASET=${NEXT_PUBLIC_SANITY_DATASET:-production} sanity build public/studio --yes"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

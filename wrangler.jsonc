@@ -1,1 +1,37 @@
-{"$schema": "node_modules/wrangler/config-schema.json", "main": ".open-next/worker.js", "name": "chandranath", "compatibility_date": "2026-11-01", "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"], "assets": {"directory": ".open-next/assets", "binding": "ASSETS"}, "services": [{"binding": "WORKER_SELF_REFERENCE", "service": "chandranath"}], "kv_namespaces": [{"binding": "NEXT_INC_CACHE_KV", "id": "0489de9aca854110804ec21f683d1887"}, {"binding": "NEXT_TAG_CACHE_KV", "id": "5235ebd46efc4f6a96f33573ff458882"}], "images": {"binding": "IMAGES"}, "observability": {"enabled": true}}
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "chandranath",
+  "keep_vars": true,
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "chandranath"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "0489de9aca854110804ec21f683d1887"
+    },
+    {
+      "binding": "NEXT_TAG_CACHE_KV",
+      "id": "5235ebd46efc4f6a96f33573ff458882"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

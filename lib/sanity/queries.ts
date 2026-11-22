@@ -1,4 +1,3 @@
-import { cacheLife, cacheTag } from "next/cache";
 import { isSanityConfigured } from "@/sanity/env";
 import { fallbackClients, fallbackPosts } from "./fallback";
 import { getSanityClient } from "./client";
@@ -8,17 +7,19 @@ import type { ClientItem, PortableBlock, PostDetail, PostItem } from "./types";
 export const SANITY_TAG = "sanity";
 
 /**
- * Production: refresh hourly (the Sanity webhook refreshes instantly on publish).
- * Development: refresh every second, so Studio edits show on the next reload or two.
- * Must be called inside a "use cache" function.
+ * Sanity fetches use Next's standard fetch cache (ISR), which OpenNext on
+ * Cloudflare Workers supports. Production: refresh hourly (the Sanity webhook
+ * refreshes instantly on publish). Development: refresh every second.
+ *
+ * Note: Next's "use cache" / cacheComponents hangs on the Workers runtime
+ * (it relies on setTimeout behaviour Workers doesn't provide), so don't use it here.
  */
-function cmsCacheLife() {
-  if (process.env.NODE_ENV === "development") {
-    cacheLife({ stale: 30, revalidate: 1, expire: 300 });
-  } else {
-    cacheLife("hours");
-  }
-}
+const cmsFetchOptions = {
+  next: {
+    revalidate: process.env.NODE_ENV === "development" ? 1 : 3600,
+    tags: [SANITY_TAG],
+  },
+};
 
 type RawPost = {
   _id: string;
@@ -61,27 +62,19 @@ const dateFormat = new Intl.DateTimeFormat("en-GB", {
 });
 
 export async function getPosts(): Promise<PostItem[]> {
-  "use cache";
-  cacheTag(SANITY_TAG);
-  cmsCacheLife();
-
   if (!isSanityConfigured) return fallbackPosts;
 
-  const raw = await getSanityClient().fetch<RawPost[]>(POSTS_QUERY);
+  const raw = await getSanityClient().fetch<RawPost[]>(POSTS_QUERY, {}, cmsFetchOptions);
   return raw.map(toPostItem);
 }
 
 export async function getPost(slug: string): Promise<PostDetail | null> {
-  "use cache";
-  cacheTag(SANITY_TAG);
-  cmsCacheLife();
-
   if (!isSanityConfigured) {
     const post = fallbackPosts.find((p) => p.slug === slug);
     return post ? { ...post, body: [] } : null;
   }
 
-  const raw = await getSanityClient().fetch<RawPostDetail | null>(POST_QUERY, { slug });
+  const raw = await getSanityClient().fetch<RawPostDetail | null>(POST_QUERY, { slug }, cmsFetchOptions);
   return raw ? { ...toPostItem(raw), body: raw.body ?? [] } : null;
 }
 
@@ -101,13 +94,9 @@ function toPostItem(p: RawPost): PostItem {
 }
 
 export async function getClients(): Promise<ClientItem[]> {
-  "use cache";
-  cacheTag(SANITY_TAG);
-  cmsCacheLife();
-
   if (!isSanityConfigured) return fallbackClients;
 
-  const raw = await getSanityClient().fetch<RawClient[]>(CLIENTS_QUERY);
+  const raw = await getSanityClient().fetch<RawClient[]>(CLIENTS_QUERY, {}, cmsFetchOptions);
   return raw.map((c) => ({
     id: c._id,
     name: c.name,
